@@ -6,6 +6,7 @@ import Colors from '../../constants/Colors';
 import CartItem from '../../components/shop/CartItem';
 
 import * as cartActions from '../../store/actions/cart';
+import * as ordersActions from '../../store/actions/orders';
 
 const CartScreen = props => {
   const cartTotalAmount = useSelector(state => state.cart.totalAmount);
@@ -36,6 +37,9 @@ const CartScreen = props => {
           title="Order Now"
           color={Colors.accent}
           disabled={cartItems.length === 0}
+          onPress={() => {
+            dispatch(ordersActions.addOrder(cartItems, cartTotalAmount));
+          }}
         />
       </View>
       <FlatList
@@ -54,6 +58,10 @@ const CartScreen = props => {
       />
     </View>
   );
+};
+
+CartScreen.navigationOptions = {
+  headerTitle: 'Your Cart'
 };
 
 const styles = StyleSheet.create({
