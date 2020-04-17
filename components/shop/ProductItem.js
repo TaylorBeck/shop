@@ -9,6 +9,8 @@ import {
   Platform
 } from "react-native";
 
+import Card from '../UI/Card';
+
 const ProductItem = props => {
   let TouchableComponent = TouchableOpacity; // iOS
   if (Platform.OS === 'android' && Platform.Version >= 21) {
@@ -16,7 +18,7 @@ const ProductItem = props => {
   }
 
   return (
-    <View style={styles.product}>
+    <Card style={styles.product}>
       <View style={styles.touchableContainer}>
         <TouchableComponent onPress={props.onSelect} useForeground>
           <View>
@@ -33,20 +35,13 @@ const ProductItem = props => {
           </View>
         </TouchableComponent>
       </View>
-    </View>
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
   // Card style example
   product: {
-    shadowColor: 'black',
-    shadowOpacity: 0.26,
-    shadowOffset: {width: 0, height: 2},
-    shadowRadius: 8,
-    elevation: 5, // android
-    borderRadius: 10,
-    backgroundColor: 'white',
     height: 300,
     margin: 20
   },
