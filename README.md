@@ -1,1 +1,1 @@
-An Ecommerce platform built for Android & iOS in React Native
+An Ecommerce example application built with React Native
